@@ -2,6 +2,8 @@
 title: "Day 4 Comp Session 2"
 format: html
 editor: visual
+execute: 
+  warning: FALSE
 ---
 
 # Session 2 Day 4
@@ -60,4 +62,24 @@ skim(penguins)
 ```{r}
 #creates grid of visualizations based on data type finding relationshsip between varibales and across groups 
 ggpairs(penguins)
+```
+
+## Making more exploratory charts in ggplot 
+
+```{r}
+#fill describes polygonn shape and stroke is outter line color , geom point doesnt have fill and colour 
+#constant goes outside eas, varibale goes within likee species!
+ggplot (data = penguins, aes(x = flipper_length_mm)) + 
+  geom_histogram(aes(fill = species)) +
+  theme_minimal()
+```
+
+```{r}
+#aplha = opacity 
+#variable goes within aes 
+ggplot(data = penguins, aes(x = species, y = bill_length_mm)) +
+       geom_boxplot(fill = "yellow", aes(color = island)) +
+  geom_jitter(color ="magenta", size = 5, alpha = 0.5, aes(size = bill_depth_mm, color = bill_depth_mm)) +
+  theme_dark()
+
 ```
