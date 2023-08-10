@@ -4,6 +4,60 @@ format: html
 editor: visual
 ---
 
-## Quarto
+# Session 2 Day 4
 
-my change woohoo!!
+## Libraries
+
+```{r}
+library(GGally)
+library(skimr)
+library(tidyverse)
+library(palmerpenguins)
+```
+
+## Basic Data Exploration
+
+-   **names**: get variable names
+
+-   **dim**: get data dimensions
+
+-   **head**: get first n lines(6 by default)
+
+-   **tail**:get last n lines (6 by default)
+
+-   **summary**: get basic summary statistics
+
+```{r}
+names(penguins)
+```
+
+```{r}
+dim(penguins)
+```
+
+```{r}
+#first 6 rows
+head(penguins)
+```
+
+```{r}
+#last 6 lines
+tail(penguins)
+```
+
+```{r}
+#summary statistics whether quant or qual variable 
+# doesnt tell us anythigna bout relationships
+#cont. bill length, bill depth
+summary(penguins)
+```
+
+```{r}
+#relationships and summary stats, for each varibale number of missing, percetnage of complete observations, means, standard deviation, percentiles, histogram 
+skim(penguins)
+```
+
+```{r}
+#creates grid of visualizations based on data type finding relationshsip between varibales and across groups 
+ggpairs(penguins)
+```
